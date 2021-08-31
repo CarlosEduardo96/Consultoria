@@ -31,18 +31,9 @@ namespace Consultoria.View.Departamento
             IsEditar = false;
         }
         public void ResetTabla() {
-            ListaDepartamento.Rows.Clear();
-            EmpresaDTO dato = new EmpresaDTO();
+            ListaDepartamento.Rows.Clear();            
             DepartamentoDTO query = new DepartamentoDTO();
-            List<ModelDepartamento> data = query.FindAll();
-            List<ModelEmpresa> lista = dato.FindAll();          
-            if (lista != null)
-            {
-                foreach (var empresa in dato.FindAll())
-                {
-                    Combo_ClaveE.Items.Add(empresa.Rfc);
-                }
-            }
+            List<ModelDepartamento> data = query.FindAll();            
             if (data != null)
             {
                 foreach (var dep in data)
@@ -135,8 +126,7 @@ namespace Consultoria.View.Departamento
                         panelMensaje.BackColor = Color.FromArgb(67, 160, 71);
                         panelMensaje.Visible = true;
                         lbMensaje.Text = "¡Datos actualizados con exito!";
-                        IsMessageActive = true;
-                        IsEditar = false;
+                        IsMessageActive = true;                        
                     }
                     else
                     {
