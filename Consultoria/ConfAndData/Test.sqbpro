@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/OldSnake/source/repos/Consultoria/Consultoria/ConfAndData/Test.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2240"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,15:mainsqlite_sequence"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">CREATE TABLE &quot;empresa&quot; (
+	&quot;id&quot;	INTEGER NOT NULL,
+	&quot;rfc&quot;	TEXT NOT NULL UNIQUE,
+	&quot;nombre&quot;	TEXT NOT NULL,
+	&quot;direccion&quot;	TEXT,
+	&quot;at_date&quot;	TEXT,
+	PRIMARY KEY(&quot;id&quot; AUTOINCREMENT)
+);
+CREATE TABLE &quot;departamento&quot; (
+	&quot;folio&quot;	INTEGER,
+	&quot;nombre&quot;	TEXT NOT NULL,
+	&quot;descripcion&quot;	TEXT NOT NULL,
+	&quot;clave_empresa&quot;	TEXT NOT NULL,
+	&quot;at_date&quot;	TEXT,
+	PRIMARY KEY(&quot;folio&quot;),
+	FOREIGN KEY(&quot;clave_empresa&quot;) REFERENCES &quot;empresa&quot;(&quot;rfc&quot;)
+);
+
+CREATE TABLE &quot;puesto&quot; (
+	&quot;clave_puesto&quot;	INTEGER NOT NULL,
+	&quot;nombre&quot;	TEXT NOT NULL,
+	&quot;descripcion&quot;	TEXT,
+	&quot;id_empresa&quot;	INTEGER NOT NULL,
+	&quot;folio_departamento&quot;	INTEGER NOT NULL,
+	&quot;at_date&quot;	TEXT,
+	FOREIGN KEY(&quot;id_empresa&quot;) REFERENCES &quot;empresa&quot;(&quot;id&quot;),
+	FOREIGN KEY(&quot;folio_departamento&quot;) REFERENCES &quot;departamento&quot;(&quot;folio&quot;),
+	PRIMARY KEY(&quot;clave_puesto&quot; AUTOINCREMENT)
+);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
