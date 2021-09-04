@@ -4,6 +4,8 @@
 
 > Consultoria Version 1.0.1
 
+> Manual de Usuario
+
 > C#
 
 > SQLite 3.12.2
